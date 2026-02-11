@@ -15,8 +15,7 @@ genai.configure(api_key=api_key)
 
 # Dùng model phiên bản ổn định nhất
 SYSTEM_PROMPT = "Bạn là chuyên gia phân tích Crypto. Hãy đưa ra dự báo Entry, TP, SL 3 khung thời gian cho mã coin người dùng nhập."
-model = genai.GenerativeModel(model_name='gemini-1.5-flash', system_instruction=SYSTEM_PROMPT)
-
+model = genai.GenerativeModel(model_name='gemini-1.5-flash-latest', system_instruction=SYSTEM_PROMPT)
 st.title("🚀 Chiến Thần Soi Kèo Crypto")
 
 symbol = st.text_input("Nhập mã Coin (VD: BTCUSDT):", "BTCUSDT").upper()
@@ -37,3 +36,4 @@ if st.button("PHÂN TÍCH"):
                 st.markdown(response.text)
     except Exception as e:
         st.error(f"Lỗi rồi bạn hiền ơi: {e}")
+
