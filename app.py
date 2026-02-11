@@ -19,7 +19,7 @@ Bạn là chuyên gia Crypto. Hãy phân tích:
 Phạm vi biến động dự báo: 1000-2000 điểm cho BTC.
 """
 
-model = genai.GenerativeModel('gemini-1.5-flash', system_instruction=SYSTEM_PROMPT)
+model = genai.GenerativeModel('gemini-1.5-flash-latest', system_instruction=SYSTEM_PROMPT)
 
 # 4. Giao diện App
 st.title("🚀 Chiến Thần Soi Kèo Crypto")
@@ -48,4 +48,5 @@ if st.button("PHÂN TÍCH"):
     with col2:
         st.subheader("🤖 AI Dự Báo")
         response = model.generate_content(f"Phân tích {symbol} ngay!")
+
         st.markdown(response.text)
